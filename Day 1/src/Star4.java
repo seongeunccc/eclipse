@@ -37,8 +37,8 @@ public class Star4 {
  * 
  * 
  * 
- * int a = 1; while 
-
+ * int a = 1; while
+ * 
  * 
  * int b = 5; while (b > a) { System.out.print(" "); b -= 2; }
  * 
