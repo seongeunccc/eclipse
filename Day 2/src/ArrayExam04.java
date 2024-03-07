@@ -1,95 +1,81 @@
 
+//학생성적관리함수,  성적관리 다차원배열 함수 나누기 및 학생 수 정의
 import java.util.Scanner;
 
 public class ArrayExam04 {
+	// field
+	String name[] = null;
+	int score[][] = null;
+	float[] avg = null;
+	Scanner sc = new Scanner(System.in);
+
+	// constructor
+
+	public ArrayExam04() {
+	}
+
+	public ArrayExam04(int num) {
+		this.name = new String[num];
+		this.score = new int[num][4];
+		avg = new float[num];
+	}
+
+	//메인 함수
 	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("몇명의 성적을 처리하시겠습니까? (숫자로 입력)");
-		
-		int st = ArrayExam04.input1(sc); //정수를 입력받는 함수를 실행하여 학생수를 입력 받음.
-		String name[] = new String[st];
-		int score[][]= new int[st][4];
-		float[] avg = new float[st];
-		
-	//	String []score name = {"name","kor",
-		
-		System.out.println("학생 이름을 입력하세요");
-		for(int i=0;i<st;i++) {		//배열을 입력하는 함수.
+
+		Scanner sc = new Scanner(System.in);
+		int num = ArrayExam04.input1(sc); // 정수를 입력받는 함수를 실행하여 학생수를 입력 받음.
+
+		ArrayExam04 ae = new ArrayExam04(num);
+
+		ae.setName(num);
+		ae.setScore(num);
+		ae.print(num);
+	}
+
+	// 함수 //
+	// 배열 name 에 값을 입력해주는 함수
+	public void setName(int a) {
+		for (int i = 0; i < a; i++) {
+			System.out.println(i + 1 + "" + "번째 학생 이름을 입력하세요");
 			name[i] = ArrayExam04.input2(sc);
 		}
-		
-	
-		for (int j = 0; j < st; j++) {	//학생 수 만큼 반복
-			System.out.println("점수를 입력하세요.(국어, 영어, 수학 순서로)");
-			for (int i = 0; i < 3; i++) {//국,영, 수 성적을 score 함수에 넣음
+	}
+	// 배열 score 에 값을 입력해주는 함수
+	public void setScore(int a) {
+		for (int j = 0; j < a; j++) {
+			System.out.println(j + 1 + "" + "번째 학생 점수를 입력하세요.(국어, 영어, 수학 순서로)");
+			for (int i = 0; i < 3; i++) {// 국,영, 수 성적을 score 함수에 넣음
 				score[j][i] = ArrayExam04.input1(sc);
 				score[j][3] += score[j][i];
 			}
+			avg[j] = score[j][3] / 3; //한 학생의 점수를 모두 입력하면 평균 값을 계산해서 avg 배열에 값을 입력함.
 		}
-		
-		
-		for(int i=0;i<st;i++) {		//배열을 입력하는 함수.
-			avg[i] = score[i][3]/3;
-		}
-		
-		//avg[i]=ArrayExam04.avg(score[j][i],1,3);
-		
-		
-		/*
-		
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("몇명의 성적을 처리하시겠습니까? (숫자로 입력)");
-		int st = sc.nextInt();		//학생수를 받는 변수 st	
-					
-		String name[] = new String[st]; // 이름
-		int score[][] = new int[st][4]; // 국,영,수,총점
-		float[] avg = new float[st];
-
-		
-		System.out.println("이름을 입력하세요");
-		for (int i = 0; i < st; i++) {		//입력할 학생 수 만큼의 이름 입력
-			name[i] = sc.next();
-		}
-
-		for (int j = 0; j < st; j++) {	//학생 수 만큼 반복
-			System.out.println("점수를 입력하세요.(국어, 영어, 수학 순서로)");
-
-			for (int i = 0; i < 3; i++) {//국,영, 수 성적을 score 함수에 넣음
-				score[j][i] = sc.nextInt();
-				score[j][3] += score[j][i];
-			}
-			avg[j] = score[j][3] / 3.f;	//학생별 성적 총점 구하기
-		}
-
-		for (int j = 0; j < st; j++) {		//값 출력하기(학생 수 만큼)
+	}
+	
+	// 학생 수 만큼 값 출력하기
+	public void print(int a) {
+		System.out.println();
+		for (int j = 0; j < a; j++) { 
 			System.out.print(name[j] + "\t");
 			for (int i = 0; i < 4; i++) {
 				System.out.print(score[j][i] + "\t");
 			}
 			System.out.print(avg[j] + "\n");
-		} */
-		
+		}
 	}
-	
-	
+
+	// 정수를 입력 받는 Input 함수
 	public static int input1(Scanner sc) {
 		int a = sc.nextInt();
 		return a;
 	}
+
+	// 문자열을 입력 받는 Input 함수
 	public static String input2(Scanner sc) {
 		String a = sc.next();
 		return a;
-	}
-	
-	
-	
-	
-	public static float avg(int a, int b, int c) {
-		float r = (a+b+c)/3;
-		return r;
 	}
 }
