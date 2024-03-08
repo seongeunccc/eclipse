@@ -1,4 +1,94 @@
+package Day4;
+
 import java.util.Scanner;
+
+
+public class ClassExamFin {
+	//field
+	int num1, num2 ;
+	char a;
+	double result;
+	Scanner sc = new Scanner(System.in);
+	
+	// constructor
+	public ClassExamFin() {
+		
+	}
+	
+	public ClassExamFin(int num1, char a, int num2) {
+		this.num1 = num1;
+		this.a = a;
+		this.num2 = num2;
+	}
+	
+	
+	public int setNum() {
+		System.out.println("계산할 숫자를 입력하세요.");
+		return sc.nextInt();
+	}
+	public char setA() {
+		System.out.println("계산할 부호를 입력하세요.");
+		return sc.next().charAt(0);
+	}
+	
+	public int plus (int i, int j) {
+		return i+j;
+	}
+	
+	public int minus (int i, int j) {
+		return i-j;
+	}
+	public int multiplication (int i, int j) {
+		return i*j;
+	}
+	public double division (int i, int j) {
+		return (double)i/j;
+	}
+	
+	
+	public double calculate(char a, int i, int j) {
+		// 어떤 계산 메소드를 실행할지 판단하는 메소드
+		switch (a) {
+		case '+': // 계산부호가 '+'이면 plus 메소드 실행
+			r = plus(i, j);
+			break;
+		case '-': // 계산부호가 '-'이면 minus 메소드 실행
+			r = Calculator.minus(i, j);
+			break;
+		case '*': // 계산부호가 '*'이면 multiplication 메소드 실행
+			r = Calculator.multiplication(i, j);
+			break;
+		case '/': // 계산부호가 '/'이면 division 메소드 실행
+			r = Calculator.division(i, j);
+			break;
+		default: // 계산 부호가 사칙연산이 아니면 "잘못된 입력" 출력
+			System.out.println("잘못된 입력. 잘못된 입력으로 인해 결과값은 0으로 표시되며 에러 발생하였습니다.");
+		}
+		return r; // 계산 값을 반환
+	}
+
+	
+	//method
+	
+	
+	public static void main(String [] args) {
+		ClassExamFin cef = new ClassExamFin();
+		
+		cef.num1= cef.setNum();
+		cef.a= cef.setA();
+		cef.num2= cef.setNum();
+		
+		// ClassExamFin cef1 = new ClassExamFin(cef.num1, cef.a,cef.num2);
+		
+		
+		
+		
+	}
+
+}
+
+/*
+
 
 public class Calculator {
 
@@ -191,4 +281,3 @@ public class Calc3 {
 
  * 
  */
-
