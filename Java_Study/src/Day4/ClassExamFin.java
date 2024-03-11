@@ -2,282 +2,101 @@ package Day4;
 
 import java.util.Scanner;
 
-
 public class ClassExamFin {
-	//field
-	int num1, num2 ;
+	// field
+	int num1, num2;
 	char a;
 	double result;
 	Scanner sc = new Scanner(System.in);
-	
+
 	// constructor
 	public ClassExamFin() {
-		
+
 	}
-	
+
 	public ClassExamFin(int num1, char a, int num2) {
 		this.num1 = num1;
 		this.a = a;
 		this.num2 = num2;
 	}
-	
-	
+
+	// setter, getter
 	public int setNum() {
 		System.out.println("계산할 숫자를 입력하세요.");
 		return sc.nextInt();
 	}
+
 	public char setA() {
-		System.out.println("계산할 부호를 입력하세요.");
 		return sc.next().charAt(0);
 	}
-	
-	public int plus (int i, int j) {
-		return i+j;
-	}
-	
-	public int minus (int i, int j) {
-		return i-j;
-	}
-	public int multiplication (int i, int j) {
-		return i*j;
-	}
-	public double division (int i, int j) {
-		return (double)i/j;
-	}
-	
-	
-	public double calculate(char a, int i, int j) {
-		// 어떤 계산 메소드를 실행할지 판단하는 메소드
-		switch (a) {
-		case '+': // 계산부호가 '+'이면 plus 메소드 실행
-			r = plus(i, j);
-			break;
-		case '-': // 계산부호가 '-'이면 minus 메소드 실행
-			r = Calculator.minus(i, j);
-			break;
-		case '*': // 계산부호가 '*'이면 multiplication 메소드 실행
-			r = Calculator.multiplication(i, j);
-			break;
-		case '/': // 계산부호가 '/'이면 division 메소드 실행
-			r = Calculator.division(i, j);
-			break;
-		default: // 계산 부호가 사칙연산이 아니면 "잘못된 입력" 출력
-			System.out.println("잘못된 입력. 잘못된 입력으로 인해 결과값은 0으로 표시되며 에러 발생하였습니다.");
-		}
-		return r; // 계산 값을 반환
+
+	public double getRseult() {
+		return result;
 	}
 
-	
-	//method
-	
-	
-	public static void main(String [] args) {
-		ClassExamFin cef = new ClassExamFin();
-		
-		cef.num1= cef.setNum();
-		cef.a= cef.setA();
-		cef.num2= cef.setNum();
-		
-		// ClassExamFin cef1 = new ClassExamFin(cef.num1, cef.a,cef.num2);
-		
-		
-		
-		
+	public void setResult(double i) {
+		this.result = i;
 	}
-
-}
-
-/*
-
-
-public class Calculator {
-
-	// field
-
-	private int i, j; // 계산할 두개의 숫자 i, j 선언
-	private char aa, bb;// 부호를 받는 a와 계속 계산할지 질문하는 것의 대답을 받아오는 b 선언
-	private double r;
-	
-	
-	// 디폴트생성자
-	public Calculator() {
-	}
-	
-	// 생성자 함수
-	public Calculator(int a, char c, int b) { // 계산할 값을 기본으로 넣는 생성자
-		i = a;
-		aa = c;
-		j = b;
-	}
-
-	// setter
-	public void setI(int a) {
-		i = a;
-	}
-
-	public void setj(int a) {
-		j = a;
-	}
-
-	public void setAa(char g) {
-		aa = g;
-	}
-
-	// getter
-	public int getI() {
-		return i;
-	}
-
-	public int getJ() {
-		return j;
-	}
-
-	public char getAa() {
-		return aa;
-	}
-
-	public double plus(int a, int b) {
-		return r = a + b;
-	}
-	
-	
-	
-	//main 함수
 
 	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-		Calculator cal = new Calculator();
-
-		int i = sc.nextInt();
-		char aa = sc.next().charAt(0);
-		int j = sc.nextInt();
-
+		ClassExamFin cef = new ClassExamFin();
+		char answer ;
+		do {
+			cef.num1 = cef.setNum();
+			System.out.println("계산할 부호를 입력하세요.");
+			cef.a = cef.setA();
+			cef.num2 = cef.setNum();
+			cef.calculate(cef.a, cef.num1, cef.num2);
+			cef.print();
+			System.out.println("계산을 계속하시겠습니까?(Y/N)");
+			answer = cef.setA();
+		} while (answer == 'Y' || answer == 'y');
+		System.out.println("고생하셨습니다.");
 	}
 
-	public static int input1(Scanner sc) { // 숫자를 입력받는 메소드
-		System.out.print("계산할 숫자 입력 : ");
-
-		int a = sc.nextInt();
-		return a;
+	// method
+	// 계산을 실행하는 메소드
+	public int plus(int i, int j) {
+		return i + j;
 	}
 
-	public static char input2(Scanner sc) { // 문자를 입력받는 메소드
-		char a = sc.next().charAt(0);
-		return a;
-	}
-
-	public static int minus(int i, int j) { // 더하기 메소드
+	public int minus(int i, int j) {
 		return i - j;
 	}
 
-	public static int multiplication(int i, int j) { // 곱하기 메소드
+	public int multiplication(int i, int j) {
 		return i * j;
 	}
 
-	public static double division(int i, int j) { // 나누기 메소드
+	public double division(int i, int j) {
 		return (double) i / j;
 	}
 
+	// 어떤 계산 메소드를 실행할지 판단하는 메소드
 	public double calculate(char a, int i, int j) {
-		// 어떤 계산 메소드를 실행할지 판단하는 메소드
 
-		double r = 0;
 		switch (a) {
-	//	case '+': // 계산부호가 '+'이면 plus 메소드 실행
-	//		r = cal.plus(i, j);
-	//		break;
+		case '+': // 계산부호가 '+'이면 plus 메소드 실행
+			setResult(plus(i, j));
+			break;
 		case '-': // 계산부호가 '-'이면 minus 메소드 실행
-			r = Calculator.minus(i, j);
+			setResult(minus(i, j));
 			break;
 		case '*': // 계산부호가 '*'이면 multiplication 메소드 실행
-			r = Calculator.multiplication(i, j);
+			setResult(multiplication(i, j));
 			break;
 		case '/': // 계산부호가 '/'이면 division 메소드 실행
-			r = Calculator.division(i, j);
+			setResult(division(i, j));
 			break;
 		default: // 계산 부호가 사칙연산이 아니면 "잘못된 입력" 출력
 			System.out.println("잘못된 입력. 잘못된 입력으로 인해 결과값은 0으로 표시되며 에러 발생하였습니다.");
 		}
-		return r; // 계산 값을 반환
+		return getRseult(); // 계산 값을 반환
 	}
 
-	public static void print(char a, int i, int j, double r) { // 출력 메소드
-		if (r % 1 != 0) { // 실수일 경우 double 형식으로 출력
-			System.out.println(i + "" + a + "" + j + "=" + r + "입니다.");
-		} else { // 정수일 경우 int 형식으로 출력
-			System.out.println(i + "" + a + "" + j + "=" + (int) r + "입니다.");
-		}
+	// 출력 메소드
+	public void print() {
+		System.out.println("계산 결과는 " + this.result + "입니다.");
 	}
 
 }
-
-/*
- * import java.util.Scanner;
-
-public class Calc3 {
-	//변수선언
-	private		int num1,num2;
-	private		char ch;
-	private     double result; 
-	private		char ans;
-			
-	public Calc3() {
-		
-	}
-	public Calc3(int n1,char c,int n2) {
-		num1 = n1;
-		ch = c;
-		num2 = n2; 
-	}
-	
-	public void setNum1(int n) {
-		num1 = n;
-	}
-	public void setNum2(int n) {
-		num2 = n;
-	}
-	public void setCh(char c) {
-		ch = c; 
-	}
-	
-	public int getNum1() {
-		return num1; 
-	}
-	public int getNum2() {
-		return num2;
-	}
-	public char getCh() {
-		return ch;
-	}
-	
-	public double plus(int n1,int n2) {
-		return result = n1+n2; 
-	}
-	
-	
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		//Calc3 calc = new Calc3();
-		
-		int num = sc.nextInt();
-		//calc.setNum1(num);
-	//	calc.setNum1(sc.nextInt());
-		char ch = sc.next().charAt(0);
-	//	calc.setCh(ch);
-		int num2 = sc.nextInt();
-	//	calc.setNum2(num2);
-		
-		Calc3 calc = new Calc3(num,ch,num2);
-		
-		System.out.println(calc.getNum1()+""+calc.getCh()+""+calc.getNum2()+"=");
-		System.err.println(calc.plus(num, num2));
-	
-	}
-
-}
-
- * 
- */

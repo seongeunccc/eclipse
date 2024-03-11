@@ -72,17 +72,3 @@ public class StudentScoreHasA {
 		return a;
 	}
 }
-
-/*
-public StudentScoreHasA(int num) {
-	name = new Name();
-	kor = new Subject();
-	mat = new Subject();
-	eng = new Subject();
-	
-	this.namea = new String[num];
-	this.kora = new int[num];
-	this.mata = new int[num];
-	this.enga = new int[num];		
-		
-}*/
