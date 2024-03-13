@@ -110,13 +110,6 @@ public class SalaryInfo {
 	public int getTotalPay() {
 		return gradePay.getNum()+basicPay.getNum()+basicPay.getNum();
 	}
-
-	/*
-	 * 	//추가
-	Index totalPay;
-
-	 */
-	
 	
 	
 }

@@ -13,17 +13,19 @@ public class FullTime {
 	FullTime FullTime;
 
 	public FullTime() {
-		SalaryInfo = new SalaryInfo();
+		//SalaryInfo = new SalaryInfo();
 		PersonalInfo = new PersonalInfo();
 		leavedate = new Index(str);
 		comebackdate = new Index(str);
 		for(int i = 0; i<12; i++) {
 			imsa[i] = new TeamExam.InputSalaryInfo();
+			
+			
 		}
 	}
-	static InputSalaryInfo[] imsa = new InputSalaryInfo[12];
+	static InputSalaryInfo[] imsa = new InputSalaryInfo[12];  //12월까지 12번 입력받을 거라서 급여입력 객체 12개 생성함
 	PersonalInfo[] pinfo = new PersonalInfo[1000];// 회사마다 처리할 최대 직원 수를 설정 변경 원할 시 [] 안의 숫자 수정
-	SalaryInfo[] sinfo = new SalaryInfo[1000];// 회사마다 처리할 최대 직원 수를 설정 변경 원할 시 [] 안의 숫자 수정
+//	SalaryInfo[] sinfo = new SalaryInfo[1000];// 회사마다 처리할 최대 직원 수를 설정 변경 원할 시 [] 안의 숫자 수정
 	FullTime[] ft = new FullTime[1000];
 	static int index = 0;
 
@@ -54,7 +56,7 @@ public class FullTime {
 		System.out.println("수정하실 값을 선택하세요");
 		System.out.println("1.이름 2.직원번호 3.직급 4.부서 5.급여수령은행 6.급여계좌 7.입사일 8.퇴직일 9.휴직일 10.복직일");
 		int answer = sc.nextInt();
-		System.out.println("변경할 내용을 입력해주세요.(숫자로 입력)");
+		System.out.println("변경할 내용을 입력해주세요.");
 		
 		switch (answer) {
 		case 1:
@@ -119,7 +121,7 @@ public class FullTime {
 
 	public int serch(int a) {
 		System.out.println("검색조건을 입력하세요.");
-		System.out.println("숫자로 입력하십시오.(1. 이름 2. 직원번호)");
+		System.out.println("숫자로 입력.(1. 이름 2. 직원번호)");
 		int answer = sc.nextInt();
 		System.out.println("검색할 내용을 입력해주세요.");
 		String aa = sc.next();
@@ -189,13 +191,13 @@ public class FullTime {
 	
 	public void calPerfomancePay(int a, int b) {		//a번째 직원의 b월 성과급 입력(기본급X성과등급에 따른 배율)
 		switch (this.pinfo[a].getPerfomanceGrade()) {
-		case 1:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*8);break;
-		case 2:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*7);break;
-		case 3:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*6);break;
-		case 4:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*5);break;
-		case 5:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*4);break;
-		case 6:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*3);break;
-		case 7:imsa[b].sinfo[a].setPerfomancePay(sinfo[a].getBasicPay()*2);break;
+		case 1:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*8);break;
+		case 2:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*7);break;
+		case 3:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*6);break;
+		case 4:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*5);break;
+		case 5:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*4);break;
+		case 6:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*3);break;
+		case 7:imsa[b].sinfo[a].setPerfomancePay(imsa[b].sinfo[a].getBasicPay()*2);break;
 		default : System.out.println("잘못된 입력입니다.(calPerfomancePay)");
 		}
 	}
@@ -203,10 +205,15 @@ public class FullTime {
 	public void calGradePay(int a, int b) { 
 		switch (this.pinfo[a].getGrade()) {
 		case "L0" : imsa[b].sinfo[a].setGradePay(100000);break;
+		case "l0" : imsa[b].sinfo[a].setGradePay(100000);break;
 		case "L1" : imsa[b].sinfo[a].setGradePay(200000);break;
+		case "l1" : imsa[b].sinfo[a].setGradePay(200000);break;
 		case "l2" : imsa[b].sinfo[a].setGradePay(300000);break;
+		case "L2" : imsa[b].sinfo[a].setGradePay(300000);break;
 		case "l3" : imsa[b].sinfo[a].setGradePay(400000);break;
+		case "L3" : imsa[b].sinfo[a].setGradePay(400000);break;
 		case "l4" : imsa[b].sinfo[a].setGradePay(500000);break;		
+		case "L4" : imsa[b].sinfo[a].setGradePay(500000);break;	
 		default : System.out.println("잘못된 입력입니다.(calGradePay)");
 		}
 	}	
@@ -216,14 +223,21 @@ public class FullTime {
 	}
 	
 	public int calTotalPay(int a,int b) {  //A직원 B월급여
+		int salary =0;
 		calBasicPay(a,b);
 		calPerfomancePay(a,b);
 		calGradePay(a,b);
-		int total = imsa[b].sinfo[a].getBasicPay()+imsa[b].sinfo[a].getPerfomancePay()+imsa[b].sinfo[a].getGradePay()+calOverTimePay(a,b);
+		if(imsa[b].sinfo[a].getLunch().equals("Y")||imsa[b].sinfo[a].getLunch().equals("y")){
+			salary+=200000;			
+		}
+		if(imsa[b].sinfo[a].getTraffic().equals("Y")||imsa[b].sinfo[a].getTraffic().equals("y")){
+			salary+=200000;			
+		}
+		int total = salary +imsa[b].sinfo[a].getBasicPay()+imsa[b].sinfo[a].getPerfomancePay()+imsa[b].sinfo[a].getGradePay()+calOverTimePay(a,b);
 		return total;
 	}
 	
-	public void printSalart(int a, int b){
+	public void printSalary(int a, int b){
 		
 	}
 	public void deleteData(int a) {
@@ -239,10 +253,20 @@ public class FullTime {
 	}
 	
 	public void printTotalPay(int a, int b) {
+		int lunch = 0, traffic=0;
+		if(imsa[b].sinfo[a].getLunch().equals("Y")||imsa[b].sinfo[a].getLunch().equals("y")){
+			lunch = 200000;
+		}
+		if(imsa[b].sinfo[a].getTraffic().equals("Y")||imsa[b].sinfo[a].getTraffic().equals("y")){
+			traffic=200000;	}
+		
 		System.out.println("총급여: "+calTotalPay(a,b));
 		System.out.println("기본급: "+imsa[b].sinfo[a].getBasicPay());
 		System.out.println("직무급: "+imsa[b].sinfo[a].getGradePay());
 		System.out.println("성과급: "+imsa[b].sinfo[a].getPerfomancePay());
 		System.out.println("시간외급여: "+calOverTimePay(a,b));
+		System.out.println("중식대: "+lunch);
+		System.out.println("교통비: "+lunch);
+		
 	}
 }

@@ -2,7 +2,12 @@ package TeamExam;
 
 import java.util.Scanner;
 
-public class InputSalaryInfo {
+public class InputSalaryInfo { //급여정보를 입력받는 클래스
+	
+	
+	public InputSalaryInfo() {
+		
+	}
 	
 	SalaryInfo[] sinfo = new SalaryInfo[1000];
 	Scanner sc = new Scanner(System.in);
