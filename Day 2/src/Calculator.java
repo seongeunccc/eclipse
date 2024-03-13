@@ -7,16 +7,17 @@ public class Calculator {
 	private int i, j; // 계산할 두개의 숫자 i, j 선언
 	private char aa, bb;// 부호를 받는 a와 계속 계산할지 질문하는 것의 대답을 받아오는 b 선언
 	private double r;
-
+	
+	
+	// 디폴트생성자
+	public Calculator() {
+	}
+	
 	// 생성자 함수
 	public Calculator(int a, char c, int b) { // 계산할 값을 기본으로 넣는 생성자
 		i = a;
 		aa = c;
 		j = b;
-	}
-
-	// 디폴트생성자
-	public Calculator() {
 	}
 
 	// setter
@@ -93,9 +94,9 @@ public class Calculator {
 
 		double r = 0;
 		switch (a) {
-		case '+': // 계산부호가 '+'이면 plus 메소드 실행
-			r = Calculator.plus(i, j);
-			break;
+	//	case '+': // 계산부호가 '+'이면 plus 메소드 실행
+	//		r = cal.plus(i, j);
+	//		break;
 		case '-': // 계산부호가 '-'이면 minus 메소드 실행
 			r = Calculator.minus(i, j);
 			break;
