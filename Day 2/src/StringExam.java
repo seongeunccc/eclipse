@@ -43,7 +43,7 @@ public class StringExam {
 		} else {
 			System.out.println("diff");
 		}
-		
+		System.out.println(str4);
 	}
 
 }

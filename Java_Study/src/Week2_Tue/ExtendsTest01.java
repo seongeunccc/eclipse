@@ -52,7 +52,7 @@ public class ExtendsTest01 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		MyStack ms = new MyStack();	//내꺼 타입으로 내꺼 접근  : 정적 바인딩 (myStack 형태로 myStack 만듬)
-		MyQueue mq = new MyQueue();	 
+		MyQueue mq = new MyQueue();
 
 		
 		char an;

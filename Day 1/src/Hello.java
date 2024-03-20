@@ -16,10 +16,10 @@
  * 		정수형 byte, short, int, long 4byte 3
  * 		실수형 float, double 3.7
  * 
- * 2. Rrference Type : 레퍼런스 변수를 사용한다
+ * 2. Reference Type : 레퍼런스 변수를 사용한다
  * 	- 배열
  * 	- 객체
- * 	- enum
+ * 	- enum(열거형)
  * 
  * 	형변화 casting
  * 	1. 자동현형환 3+3.2 / int+double = 에러가 나는게 맞지만 int + double 을 같은 형으로 바꿈/큰거 기준으로
