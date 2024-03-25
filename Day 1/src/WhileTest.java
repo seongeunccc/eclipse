@@ -1,8 +1,6 @@
 
 public class WhileTest {
-
 	
-			
 	public static void main(String[] args) {
 		
 		int a = 1;
@@ -13,7 +11,6 @@ public class WhileTest {
 
 		}
 		System.out.println("접은 횟수: " +b);
-		System.out.println("사각형 개수: "+
-		a);
+		System.out.println("사각형 개수: "+a);
 	}
 }

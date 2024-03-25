@@ -40,10 +40,12 @@ public class ArrayExam01 {
 		// 출력 : 이름,국어, 영어, 수학, 총점 평균
 
 		System.out.println("이름을 입력하세요");
+	
 		name = sc.next();
 		
+		System.out.println("국어, 수학, 영어 순으로 성적을 입력하세요");
 		for(int i=0;i<3;i++) {
-			System.out.println("점수를 입력하세요");
+			System.out.println(i+1 +"번째 과목의 점수를 입력하세요");
 			score[i] = sc.nextInt();	
 			score[3] += score[i];
 		}

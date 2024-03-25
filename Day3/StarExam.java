@@ -1,13 +1,20 @@
-package src;
 import java.util.Scanner;
 
-public class StarExam {
+import src.StarExam;
 
+public class StarExam {
 	public static void main(String[] args) {
+		StarExam se = new StarExam();
+		se.runProgram();
+		
+	}
+	
+	
+	
+	void runProgram() {
 
 		char an;
 		Scanner sc = new Scanner(System.in);
-		StarExam se = new StarExam();
 
 		do {
 			System.out.println("몇번 모양의 별을 실행하시겠습니까?(1~6 중 선택)");
@@ -15,22 +22,22 @@ public class StarExam {
 
 			switch (num1) {
 			case 1:
-				se.star1();
+				star1();
 				break;
 			case 2:
-				se.star2();
+				star2();
 				break;
 			case 3:
-				se.star3();
+				star3();
 				break;
 			case 4:
-				se.star4();
+				star4();
 				break;
 			case 5:
-				se.star5();
+				star5();
 				break;
 			case 6:
-				se.star6();
+				star6();
 				break;
 			default:
 				System.out.println("잘못된 입력입니다.");
@@ -41,6 +48,7 @@ public class StarExam {
 		} while (an == 'y' || an == 'Y');
 		System.out.println("고생하셨습니다.");
 	}
+	
 
 	public void star1() {
 		int a = 0;

@@ -8,7 +8,7 @@ public class Star2 {
 		while (a < 4) {
 			int b = 0;
 			while (b < a) {
-				System.out.print("*");
+				System.out.print("* ");
 				b++;
 			}
 			a++;

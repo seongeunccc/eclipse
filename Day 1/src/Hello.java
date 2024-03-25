@@ -21,9 +21,9 @@
  * 	- 객체
  * 	- enum(열거형)
  * 
- * 	형변화 casting
+ * 	형변환 casting
  * 	1. 자동현형환 3+3.2 / int+double = 에러가 나는게 맞지만 int + double 을 같은 형으로 바꿈/큰거 기준으로
- * 	2. 강제형변환 3/4=0 int/int =0.75(에러, 타입이 다름)
+ * 	2. 강제형변환 3/4=0 int/int = 0.75(에러, 타입이 다름)
  * 	double (3)/double(4)/ 원할 때 직접 형 변환
  * 
  */
@@ -37,6 +37,9 @@ public class Hello {   //Hello는 내가 만든 클래스, 밑에 있는 String,
 	public static void main(String []args) { //프로그램을 시작하고 끝내줌, 프로그램 전체에 메인은 한개만 있어야 함, 문자 배열을 받는다.
 		int num; //파이썬을 제외하고는 문장 끝에 세미콜론을 넣어야 함 / 이클립스는 오류나면 그 때 실시간으로 에러 표시해 줌(기본문법, 100%는 아님)
 		num = 10;
+		double a = 10.7;
+		int b = 5;
+		int c = 4;
 		
 		char ch = 'A'; //변수는 선언과 함께 초기화도 가능하고, 선언 후에 초기화도 가능하다
 		System.out.println(num);  //out은 static 이다. 바로 썼으니까 / 클래스 이름을 통해서 가는 것은 스태틱
@@ -47,11 +50,13 @@ public class Hello {   //Hello는 내가 만든 클래스, 밑에 있는 String,
 		hello = new Hello(); //객체 생성 stack 영역과 Heap 영역에 데이터 있는지 확인 /heap 영역에 데이터 누락되는 경우 자주 발생 / heap 영역은 new로 선언
 		
 		System.out.print("a".repeat(8));
+		System.out.print(c/b);
 		
-	}// main 함수가 끝나는 시점
+	}
+	// main 함수가 끝나는 시점
 	//dataType 변수명 ;
-	// 뱐수명 = 값; == 초기화(값을 넣다)
-	//변수 - 지역변수 local variable : method 안에 선언되어지는 변수
+	// 뱐수명 = 값; = 초기화(값을 넣다)
+	//지역변수 local variable : method 안에 선언되어지는 변수
 	//       	  			: 꼭 초기화를 해야함. / 안하면 에러남
 	
 }

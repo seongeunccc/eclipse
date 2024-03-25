@@ -138,6 +138,6 @@ public class BabyGin {
 		// bg.runGame();
 
 		// 버전 2 실행
-		bg.runGame(1);
+		bg.runGame();
 	}
 }

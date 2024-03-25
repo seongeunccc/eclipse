@@ -17,6 +17,7 @@ public class ThisCall {
 	}
 
 	public int getB() {
+		
 		return b;
 	}
 

@@ -65,7 +65,6 @@ public class QueueArray {
 			default:
 				printAll();
 			}
-
 			System.out.println("계속하시겠습니까?(Y/N)");
 			an = sc.next().charAt(0);
 		} while (an == 'y' || an == 'Y');

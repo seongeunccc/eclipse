@@ -83,7 +83,7 @@ public class InsertExam {
 				count1++;
 				if (a[j] > a[j + 1]) {
 					int t = a[j];
-					a[j] = a[j + 1];
+ 					a[j] = a[j + 1];
 					a[j + 1] = t;
 					count++;
 				}

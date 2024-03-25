@@ -13,17 +13,18 @@ public class ArrayExam02 {
 
 		Scanner sc = new Scanner(System.in);
 
-		// 입력 이름 국어영어 수학
+		// 입력 이름 국어 영어 수학
 		// 연산 총, 평
 		// 출력 : 이름,국어, 영어, 수학, 총점 평균
 
-		System.out.println("이름을 입력하세요");
+		System.out.println("학생 세 명의 이름을 입력하세요");
 		for (int i = 0; i < 3; i++) {
 			name[i] = sc.next();
 		}
 
 		for (int j = 0; j < 3; j++) {
-			System.out.println("점수를 입력하세요");
+			System.out.println(j+1 + "번째 학생의 점수를 입력하세요");
+			System.out.println("국어, 수학, 영어 순으로");
 
 			for (int i = 0; i < 3; i++) {
 				score[j][i] = sc.nextInt();
@@ -37,7 +38,7 @@ public class ArrayExam02 {
 			for (int i = 0; i < 4; i++) {
 				System.out.print(score[j][i] + "\t");
 			}
-			System.out.print(avg[j] + "\t");
+			System.out.print(avg[j] + "\t" + "\n");
 		}
 	}
 }

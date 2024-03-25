@@ -8,11 +8,11 @@ public class Star4 {
 		for (int i = 1; i <= 3; i++) { // 3행 생성
 			for (int j = 1; j < 6; j++) { // 5열 생성
 				if (j <= a) { // 별 앞에 공백 생성(2부터 줄어들게 처리)
-					System.out.print(" ");
+					System.out.print("  ");
 				} else if (j > b) { // 별 찍기 이후에는 아무것도 출력하지 않음
 					System.out.print("");
 				} else {
-					System.out.print("*");
+					System.out.print("* ");
 				}
 			}
 			a--; // 별 개수 두개씩 증가

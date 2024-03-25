@@ -18,17 +18,15 @@
  */
 
 public class ForTest {
-
-	
 			
 	public static void main(String[] args) {
 		
-		int a = 1;
-		int b = 0;
+		int a = 1; //사각형의 개수
+		int b = 0; //접은 횟수
 		
 		for (b = 0;a<500;b++) {
 
-			a<<=1; // a*=2; a=a*2
+			a<<=1; // a*=2; a=a*2 비트 연산자 사용
 
 		}
 		System.out.println("접은횟수: "+b);

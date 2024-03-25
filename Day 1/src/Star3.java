@@ -10,9 +10,9 @@ public class Star3 {
 		
 			while (b < 4) {		//3개의 열 만들기
 				if (b<=c) {
-					System.out.print(" ");
+					System.out.print("  ");
 				}else {
-				System.out.print("*");
+				System.out.print("* ");
 				}
 				b++;
 			}

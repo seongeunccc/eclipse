@@ -60,6 +60,7 @@ public class ClassExam01 {
 		ce.output(3.4);
 		ce.output(11);
 		
+		
 	}
 
 	public void output(int a) {
